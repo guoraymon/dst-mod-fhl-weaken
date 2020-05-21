@@ -42,7 +42,7 @@ local function fn()
     
     inst:AddComponent("inspectable")
     
-	-- ½¨ÔìÔ¶¹Å¼ÀÌ³
+	-- å»ºé€ è¿œå¤ç¥­å›
 	local function OnDeploy (inst, pt)
     SpawnPrefab("ancient_altar").Transform:SetPosition(pt.x, pt.y, pt.z)
     inst.components.stackable:Get():Remove()
