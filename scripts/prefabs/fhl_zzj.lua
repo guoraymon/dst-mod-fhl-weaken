@@ -181,22 +181,6 @@ end
     end
 	
 	
-	inst:AddComponent("tool")
-	
-	if TUNING.ZZJ_CANKANSHU then
-	    inst.components.tool:SetAction(ACTIONS.CHOP) --可砍树
-	end
-    if TUNING.ZZJ_CANWAKUANG then
-	    inst.components.tool:SetAction(ACTIONS.MINE) --可挖矿
-	end
-    if TUNING.ZZJ_CAN_USE_AS_SHOVEL then
-        inst.components.tool:SetAction(ACTIONS.DIG)  --可挖..
-    end
-    --inst.components.tool:SetAction(ACTIONS.NET)  --可捕虫
-    if TUNING.ZZJ_CAN_USE_AS_HAMMER then
-        inst.components.tool:SetAction(ACTIONS.HAMMER) --可重击
-    end
-    --inst:AddInherentAction(ACTIONS.TERRAFORM)    --可铲草
 	
 	inst:AddComponent("weapon")
     inst.components.weapon:SetDamage(20)
@@ -215,10 +199,6 @@ end
         inst.components.finiteuses:SetMaxUses(TUNING.ZZJ_FINITE_USES)
         inst.components.finiteuses:SetUses(TUNING.ZZJ_FINITE_USES)
         inst.components.finiteuses:SetOnFinished(onzzjremove)
-        inst.components.finiteuses:SetConsumption(ACTIONS.CHOP, 1)
-        inst.components.finiteuses:SetConsumption(ACTIONS.MINE, 1)
-        inst.components.finiteuses:SetConsumption(ACTIONS.HAMMER, 1)
-        inst.components.finiteuses:SetConsumption(ACTIONS.DIG, 1)
     end
 	
     inst:AddComponent("equippable")
