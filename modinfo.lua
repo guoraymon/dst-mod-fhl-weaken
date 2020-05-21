@@ -6,19 +6,22 @@ Problems appeared in the process of using or any Suggestions feedback, welcome t
 In here ,Thinks for BoredPlayer13's feedback and support.
 Thank you for your support,bless you.
 ]]
-name = "Syelza风幻龙"
-description = "\nKill Monsters Drop Rune Crystals\nEat pitaya upgrade!(full level 30, the higher the grade, the lower the chance to upgrade)level to earn a little talent, and can order four properties\nExclusive weapons Golden Wujing rod.Upgrades can be increased movement speed\nShe is the friend of the librarian"
-author = "Oldbear525805350&little north"
-version = "1.7.5"
+name = "Syelza风幻龙--"
+description = "略微调低了一点点属性，宝具只能专属"
+author = "颠三倒四"
+version = "1.0.2"
 
---------更新网址
 forumthread = ""
 
-api_version = 10
+api_version = 6
+api_version_dst = 10
 
-dst_compatible = true
+dst_compatible = true 
+
 dont_starve_compatible = false
-reign_of_giants_compatible = false
+reign_of_giants_compatible = false 
+shipwrecked_compatible = false  
+
 all_clients_require_mod = true
 
 icon_atlas = "modicon.xml"
@@ -42,19 +45,6 @@ configuration_options =
 		},
 
 		default = .05,
-	},
-
-	{
-		name = "fhl_hjopen",
-		label = "背包护甲功能",
-		hover = "The Backpack's armor function",
-		options =	
-		{
-			{description = "open", data = true},
-			{description = "close(default)", data = false},
-		},
-
-		default = false,
 	},
 	
 	{
@@ -104,54 +94,6 @@ configuration_options =
 		},
 		default = false,
 	},
-	
-    {
-		name = "zzj_cankanshu",
-		label = "配剑可以当做斧子:",
-		hover = "Can The Golden wujing cut down trees?",
-		options =
-		{
-			{description = "yes", data = true},
-			{description = "no(default)", data = false},
-		},
-		default = false,
-	},
-	
-	{
-		name = "zzj_canwakuang",
-		label = "配剑可以当做搞头:",
-		hover = "Can The Golden wujing mining?",
-		options =
-		{
-			{description = "yes", data = true},
-			{description = "no(default)", data = false},
-		},
-		default = false,
-	},
-
-	{
-		name = "zzj_canuseashammer",
-		label = "配剑可以当做锤子:",
-		hover = "Can The Golden wujing use as hammer?",
-		options =
-		{
-			{description = "yes", data = true},
-			{description = "no(default)", data = false},
-		},
-		default = false,
-	},
-
-	{
-		name = "zzj_canuseasshovel",
-		label = "配剑可当做铲子:",
-		hover = "Can The Golden wujing use as shovel?",
-		options =
-		{
-			{description = "yes", data = true},
-			{description = "no(default)", data = false},
-		},
-		default = false,
-	},
 
 	{
 		name = "zzj_finiteuses",
@@ -179,19 +121,5 @@ configuration_options =
 		},
 
 		default = false,
-	},
-	
-	{
-		name = "buffgo",
-		label = "护身符吸收一半伤害",
-		hover = "Can the Amulet absorbs half damage?",
-		options =	
-		{
-			{description = "yes", data = true},
-			{description = "no(default)", data = false},
-		},
-
-		default = false,
-	},
-	
+	}
 }

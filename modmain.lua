@@ -38,6 +38,8 @@ PrefabFiles = {
 	"fhl_bb",
 }
 
+STRINGS.FHL_TEDING = "这是风幻妹子的东西！"
+
 GLOBAL.TUNING.FHL = {}
 
 GLOBAL.STRINGS.NAMES.BJ_11 = "萌妹子的宝具"
@@ -440,16 +442,10 @@ end
 AddMinimapAtlas("images/minimapicons/applebell.xml")
 
 TUNING.FHL_COS = GetModConfigData("fhl_cos")
-TUNING.ZZJ_CAN_USE_AS_HAMMER = GetModConfigData("zzj_canuseashammer")
-TUNING.ZZJ_CAN_USE_AS_SHOVEL = GetModConfigData("zzj_canuseasshovel")
 TUNING.ZZJ_FINITE_USES = GetModConfigData("zzj_finiteuses")
-TUNING.ZZJ_CANKANSHU = GetModConfigData("zzj_cankanshu")
-TUNING.ZZJ_CANWAKUANG = GetModConfigData("zzj_canwakuang")
 TUNING.ZZJ_PRE = GetModConfigData("zzj_pre")
 TUNING.OPENLIGHT = GetModConfigData("openlight")
 TUNING.OPENLI = GetModConfigData("openli")
-TUNING.BUFFGO = GetModConfigData("buffgo")
-TUNING.FHL_HJOPEN = GetModConfigData("fhl_hjopen")
 TUNING.ZZJ_FIREOPEN = GetModConfigData("zzj_fireopen")
 TUNING.LIKEORNOT = GetModConfigData("likeornot")
 
