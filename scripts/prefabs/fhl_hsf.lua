@@ -19,10 +19,9 @@ end
 local function OnGetItemFromPlayer(inst, giver, item)
 	if item.prefab == "ancient_soul" and inst.components.armor:GetPercent() < 1 then
 		giver.components.inventory:ConsumeByName("ancient_soul", 1)
-		local hsf_repaired = TUNING.ARMORMARBLE*1.2
-		inst.components.armor.condition = inst.components.armor.condition + hsf_repaired
+		inst.components.armor.condition = inst.components.armor.condition + 100
 		if inst.components.armor:GetPercent() > 1 then
-			inst.components.armor:SetCondition(TUNING.ARMORMARBLE*3)
+			inst.components.armor:SetCondition(200)
 		end
 	end
 end
@@ -34,21 +33,36 @@ local function saniup(inst)
 	end
 end
 
-local function onequip(inst, owner) 
-    --owner.AnimState:OverrideSymbol("swap_hat", "faroz_gls", "swap_hat")
+local function onequip(inst, owner)
+	-- 风幻龙专属
+	if owner.prefab == "fhl"  then
+		--owner.AnimState:OverrideSymbol("swap_hat", "faroz_gls", "swap_hat")
+	
+		--owner.AnimState:Show("HAT")
+		--owner.AnimState:Show("HAT_HAIR")
+		--owner.AnimState:Hide("HAIR_NOHAT")
+		--owner.AnimState:Hide("HAIR")
+	
+		--if owner:HasTag("player") then
+		--    owner.AnimState:Hide("HEAD")
+		--    owner.AnimState:Show("HEAD_HAT")
+		--end 
+		inst.isWeared = true
+		inst.isDropped = false
+		saniup(inst)
+	else
+		owner:DoTaskInTime(0, function()
+			local inventory = owner.components.inventory 
+			if inventory then
+				inventory:DropItem(inst)
+			end
 
-    --owner.AnimState:Show("HAT")
-    --owner.AnimState:Show("HAT_HAIR")
-    --owner.AnimState:Hide("HAIR_NOHAT")
-    --owner.AnimState:Hide("HAIR")
-
-    --if owner:HasTag("player") then
-    --    owner.AnimState:Hide("HEAD")
-    --    owner.AnimState:Show("HEAD_HAT")
-    --end 
-    inst.isWeared = true
-	inst.isDropped = false
-	saniup(inst)
+			local talker = owner.components.talker 
+			if talker then
+				talker:Say(STRINGS.FHL_TEDING)
+			end
+		end)
+	end
 end
 
 local function onunequip(inst, owner) 
@@ -111,13 +125,10 @@ local function fn(Sim)
 	inst:AddComponent("equippable")
     inst.components.equippable.equipslot = EQUIPSLOTS.HEAD
 	
-	if inst and TUNING.BUFFGO then
-		inst:AddComponent("armor")
-		inst.components.armor:InitCondition(TUNING.ARMORMARBLE*3, 0.5)
-		inst:AddComponent("trader")
-		inst.components.trader:SetAcceptTest(AcceptTest)
-		inst.components.trader.onaccept = OnGetItemFromPlayer
-    end
+	inst:AddComponent("trader")
+	inst.components.trader:SetAcceptTest(AcceptTest)
+	inst.components.trader.onaccept = OnGetItemFromPlayer
+
     inst.components.equippable:SetOnEquip( onequip )
     inst.components.equippable:SetOnUnequip( onunequip )
 	inst.components.inventoryitem:SetOnDroppedFn( ondrop )
