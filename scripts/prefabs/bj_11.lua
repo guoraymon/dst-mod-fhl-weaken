@@ -1,6 +1,3 @@
-local STRINGS = GLOBAL.STRINGS
-STRINGS.FHL_TEDING = "别碰！"
-
 local assets=
 {
     Asset("ANIM", "anim/fhl_zzj.zip"),
@@ -60,9 +57,9 @@ local function fn()
 	
 	inst:AddComponent("tool")
 	
-	inst.components.tool:SetAction(ACTIONS.CHOP,5) --可砍树
+	inst.components.tool:SetAction(ACTIONS.CHOP, 2) --可砍树
 	
-	inst.components.tool:SetAction(ACTIONS.MINE,5) --可挖矿
+	inst.components.tool:SetAction(ACTIONS.MINE, 2) --可挖矿
 	
     inst.components.tool:SetAction(ACTIONS.DIG)  --可挖..
 	
