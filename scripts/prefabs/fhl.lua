@@ -69,10 +69,9 @@ end
 
 --升级机制
 local function applyupgrades(inst)
+
 	local max_upgrades = 30
 	local upgrades = math.min(inst.level, max_upgrades)
-
-	upgrades = 0
 	
 	local hunger_percent = inst.components.hunger:GetPercent()
 	local health_percent = inst.components.health:GetPercent()
@@ -85,11 +84,11 @@ local function applyupgrades(inst)
 	inst.components.locomotor.walkspeed = math.ceil (6 + upgrades / 10) --9
 	inst.components.locomotor.runspeed = math.ceil (8 + upgrades / 10) --11
 	
-	-- inst.components.talker:Say("QWQ Level up: ".. (inst.level).. "\n你还有".. (inst.jnd).. "点技能点!\n加点帮助请按R,当前状态请按T!".. "\nyou have ".. (inst.jnd).. " skill points!\nClick R for help,Click T for State!")
+	inst.components.talker:Say("QWQ Level up: ".. (inst.level).. "\n你还有".. (inst.jnd).. "点技能点!\n加点帮助请按R,当前状态请按T!".. "\nyou have ".. (inst.jnd).. " skill points!\nClick R for help,Click T for State!")
 	
-	-- if inst.level >29 then
-	-- 	inst.components.talker:Say("W.W Level Max!\n你还有".. (inst.jnd).. "点技能点!\n加点帮助请按R,当前状态请按T!".. "\nyou have ".. (inst.jnd).. " skill points!\nClick R for help,Click T for State!")
-	-- end
+	if inst.level >29 then
+		inst.components.talker:Say("W.W Level Max!\n你还有".. (inst.jnd).. "点技能点!\n加点帮助请按R,当前状态请按T!".. "\nyou have ".. (inst.jnd).. " skill points!\nClick R for help,Click T for State!")
+	end
 
 	inst.components.hunger:SetPercent(hunger_percent)
 	inst.components.health:SetPercent(health_percent)
@@ -199,7 +198,7 @@ local master_postinit = function(inst)
 	inst.level = 0
 	inst.jnd = 0
 	inst.je = 0
-	-- inst.components.eater:SetOnEatFn(oneat)
+	inst.components.eater:SetOnEatFn(oneat)
 	applyupgrades(inst)
 	
 	inst:AddComponent("reader")	
